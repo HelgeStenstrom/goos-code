@@ -19,7 +19,7 @@ public class MainWindowTest {
   @Test public void 
   makesUserRequestWhenJoinButtonClicked() { 
     final ValueMatcherProbe<Item> itemProbe = 
-      new ValueMatcherProbe<Item>(equalTo(new Item("an item-id", 789)), 
+      new ValueMatcherProbe<Item>(equalTo(new Item("an item id", 789)), 
                                   "item request");
     mainWindow.addUserRequestListener( 
         new UserRequestListener() { 
@@ -28,7 +28,10 @@ public class MainWindowTest {
           } 
         }); 
     
-    driver.startBiddingWithStopPrice("an item-id", 789);
+    driver.startBiddingWithStopPrice("an item id", 789);
     driver.check(itemProbe); 
   }
 }
+
+// TODO: Fix keyboard layout problem. When the tester types a - on the Swedish keyboard, it used the button marked with  a +.
+// WindowLicker only supports US and GB keyboards, it seems.
